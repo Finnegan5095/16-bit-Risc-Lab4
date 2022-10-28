@@ -26,8 +26,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity PC_Component is
     Port ( clk : in  STD_LOGIC;
-           pc_in : in  STD_LOGIC_VECTOR (31 downto 0);
-           pc_out : out  STD_LOGIC_VECTOR (31 downto 0));
+           pc_in : in  STD_LOGIC_VECTOR (15 downto 0);
+           pc_out : out  STD_LOGIC_VECTOR (15 downto 0));
 end PC_Component;
 
 architecture Behavioral of PC_Component is
