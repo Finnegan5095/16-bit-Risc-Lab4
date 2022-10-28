@@ -32,8 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity ShiftJump is
-  Port (ShiftAddress : in STD_LOGIC_VECTOR(12 downto 0);
-        ShiftOut    : out STD_LOGIC_VECTOR(13 downto 0));
+  Port (ShiftAddress : in STD_LOGIC_VECTOR(11 downto 0);
+        ShiftOut    : out STD_LOGIC_VECTOR(12 downto 0));
 end ShiftJump;
 
 architecture Behavioral of ShiftJump is
