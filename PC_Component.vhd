@@ -27,7 +27,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity PC_Component is
     Port ( clk : in  STD_LOGIC;
            pc_in : in  STD_LOGIC_VECTOR (15 downto 0);
-           pc_out : out  STD_LOGIC_VECTOR (15 downto 0));
+           pc_out : inout  STD_LOGIC_VECTOR (15 downto 0));
 end PC_Component;
 
 architecture Behavioral of PC_Component is
@@ -38,7 +38,10 @@ process (clk)
 	--if rising_edge(clk) then 
 	if falling_edge(clk) then --Ask Rob about rising/falling edge for pc counter.
 		pc_out <= pc_in;
+	else
+	   pc_out <= pc_out;
 	end if;
+	   
 end process;
 end Behavioral;
 
