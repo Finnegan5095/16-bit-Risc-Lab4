@@ -33,9 +33,9 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RegFile is
   Port (clk : in STD_LOGIC;
-        ReadReg1 : in STD_LOGIC_VECTOR(4 downto 0);
-        ReadReg2 : in STD_LOGIC_VECTOR(4 downto 0);
-        WriteReg : in STD_LOGIC_VECTOR(4 downto 0);
+        ReadReg1 : in STD_LOGIC_VECTOR(3 downto 0);
+        ReadReg2 : in STD_LOGIC_VECTOR(3 downto 0);
+        WriteReg : in STD_LOGIC_VECTOR(3 downto 0);
         WriteData : in STD_LOGIC_VECTOR(15 downto 0);
         RegWriteCtrl : in STD_LOGIC;
         ReadData1 : out STD_LOGIC_VECTOR(15 downto 0);
@@ -47,12 +47,12 @@ architecture Behavioral of RegFile is
  type RegMemArray is array(0 to 15) of STD_LOGIC_VECTOR(15 downto 0);
  signal Reg_File : RegMemArray := (
     "0000000000000000", --$Zero
-    "0000000000000000", --$v0
-    "0000000000000000", --$v1
-    "0000000000000000", --$v2
-    "0000000000000000", --$v3
-    "0000000000000000", --$a0
-    "0000000000000000", --$a1
+    "0000000001000000", --$v0
+    "0001000000010000", --$v1
+    "0000000000001111", --$v2
+    "0000000011110000", --$v3
+    "0000000000010000", --$a0
+    "0000000000000101", --$a1
     "0000000000000000", --$t0
     "0000000000000000", --$t1
     "0000000000000000", --$t2
