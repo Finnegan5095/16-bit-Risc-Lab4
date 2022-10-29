@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity DataMemory is
   Port (Zero : in STD_LOGIC;
+        clk  : in STD_LOGIC;
         WriteData : in STD_LOGIC_VECTOR(15 downto 0);
         ALUResult : in STD_LOGIC_VECTOR(15 downto 0);
         MemWrite    : in STD_LOGIC;
@@ -307,14 +308,14 @@ begin
 process(MemWrite, MemRead)
 begin
 -- Write and read on the falling edge. 
-if (MemWrite = '1') then
+if (MemRead = '1' and Rising_edge(clk)) then
     ReadData <= LongAssMemorySignal(to_integer(unsigned(ALUResult)));
 
-elsif (MemRead = '1') then
+elsif (MemWrite = '1' and Falling_edge(clk)) then
     LongAssMemorySignal(to_integer(unsigned(ALUResult))) <= WriteData;
 
 else --?
-    readData <= x"0001";
+    --ReadData <= x"0001";
 end if;
 
 

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 10/27/2022 06:29:49 PM
+-- Create Date: 10/28/2022 07:13:55 PM
 -- Design Name: 
--- Module Name: SignExtension - Behavioral
+-- Module Name: JumpMux - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -24,22 +24,24 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
+--use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity SignExtension is
-  Port (DataIn : in STD_LOGIC_VECTOR(3 downto 0);
-        ExtendedData : out STD_LOGIC_VECTOR(15 downto 0));
-end SignExtension;
+entity JumpMux is
+  Port (Jump : in STD_LOGIC; 
+        JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
+        BranchMuxIn : in STD_LOGIC_VECTOR(15 downto 0);
+        PCOut   : out STD_LOGIC_VECTOR(15 downto 0));
+end JumpMux;
 
-architecture Behavioral of SignExtension is
+architecture Behavioral of JumpMux is
 
 begin
 
-    ExtendedData <= "111111111111" & DataIn WHEN DataIn(3) = '1' ELSE "000000000000" & DataIn;
+PCOut <= JumpAddressIn WHEN Jump = '1' ELSE BranchMuxIn;
 
 end Behavioral;
