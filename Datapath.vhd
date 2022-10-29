@@ -112,7 +112,7 @@ architecture Structural of Datapath is
     Component PC_Component
         Port (clk : in  STD_LOGIC;
            pc_in : in  STD_LOGIC_VECTOR (15 downto 0);
-           pc_out : out  STD_LOGIC_VECTOR (15 downto 0));
+           pc_out : inout  STD_LOGIC_VECTOR (15 downto 0));
     End Component; 
 
     Component RegFile
@@ -132,8 +132,8 @@ architecture Structural of Datapath is
     End Component; 
     
     Component ShiftJump
-        Port (ShiftAddress : in STD_LOGIC_VECTOR(12 downto 0);
-        ShiftOut    : out STD_LOGIC_VECTOR(13 downto 0));
+        Port (ShiftAddress : in STD_LOGIC_VECTOR(11 downto 0);
+        ShiftOut    : out STD_LOGIC_VECTOR(12 downto 0));
     End Component; 
     
     Component SignExtension
@@ -145,7 +145,7 @@ architecture Structural of Datapath is
         Port (Jump : in STD_LOGIC; 
         JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
         BranchMuxIn : in STD_LOGIC_VECTOR(15 downto 0);
-        PCOut   : out STD_LOGIC_VECTOR(15 downto 0));
+        PCOut   : inout STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     
