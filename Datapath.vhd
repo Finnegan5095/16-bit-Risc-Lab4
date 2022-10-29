@@ -52,8 +52,6 @@ architecture Structural of Datapath is
             RegToALUMuxIn   : in STD_LOGIC_VECTOR(15 downto 0);
             ALUctrOpCode  : in STD_LOGIC_VECTOR(3 downto 0);
             Zero    : out std_logic;
-            Overflow    : out std_logic;
-            Carryout    : out std_logic;
             ALUResultOut  : out STD_LOGIC_VECTOR(15 downto 0));
     END Component;
     
@@ -119,9 +117,9 @@ architecture Structural of Datapath is
 
     Component RegFile
         Port (clk : in STD_LOGIC;
-        ReadReg1 : in STD_LOGIC_VECTOR(4 downto 0);
-        ReadReg2 : in STD_LOGIC_VECTOR(4 downto 0);
-        WriteReg : in STD_LOGIC_VECTOR(4 downto 0);
+        ReadReg1 : in STD_LOGIC_VECTOR(3 downto 0);
+        ReadReg2 : in STD_LOGIC_VECTOR(3 downto 0);
+        WriteReg : in STD_LOGIC_VECTOR(3 downto 0);
         WriteData : in STD_LOGIC_VECTOR(15 downto 0);
         RegWriteCtrl : in STD_LOGIC;
         ReadData1 : out STD_LOGIC_VECTOR(15 downto 0);
@@ -181,6 +179,22 @@ architecture Structural of Datapath is
     signal WriteRegisterSignalReg : STD_LOGIC_VECTOR(3 downto 0); 
     signal Instruction_Adder_Component_Signal : STD_LOGIC_VECTOR(15 downto 0);
     signal SignExtendedSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal JumpShifterSignal : STD_LOGIC_VECTOR(11 downto 0);
+    signal ReadReg1OutSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal ReadReg2OutSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal ALUMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal ZeroSignal : STD_LOGIC;
+    signal ALUResultsigOut : STD_LOGIC_VECTOR(15 downto 0);
+    signal DataMemorySignalOut : STD_LOGIC_VECTOR(15 downto 0);
+    signal MemToRegMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal ShiftOutBranchSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal PCMostSig : STD_LOGIC_VECTOR(2 downto 0);
+    signal BranchJumpAdderALUResult : STD_LOGIC_VECTOR(15 downto 0);
+    signal ShiftJumpSignalOut : STD_LOGIC_VECTOR(12 downto 0);
+    signal ZeroAndBranchSignal : STD_LOGIC;
+    signal BranchMuxSignalOut : STD_LOGIC_VECTOR(15 downto 0);
+    signal JumpFullSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0);
     
 begin
 
@@ -204,8 +218,12 @@ begin
         InstOut  => Instruction_Adder_Component_Signal
     );
     
+    
+    PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
+    InstRsMuxSignal <= InstDataSignal(11 downto 8);
     InstRtMuxSignal <= InstDataSignal(7 downto 4);
     InstRdMuxSignal <= InstDataSignal(3 downto 0);
+    JumpShifterSignal <= InstDataSignal(11 downto 0);
     
      InstMemToRegMuxCall : InstMemToRegMux
      PORT MAP(
@@ -223,127 +241,93 @@ begin
     
      ShiftBranchCall : ShiftBranch
      PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        SignExtend => SignExtendedSignal,
+        ShiftOutBranch  => ShiftOutBranchSignal
     );
-    
     
     
      BranchJumpAdderCall : BranchJumpAdder
      PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ShiftInput => ShiftOutBranchSignal,
+        PCAddress  => Instruction_Adder_Component_Signal,
+        ALUResult  => BranchJumpAdderALUResult
     );
     
      ShiftJumpCall : ShiftJump
      PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ShiftAddress => JumpShifterSignal,
+        ShiftOut  => ShiftJumpSignalOut
     );
 
   RegFileCall : RegFile
      PORT MAP(
         clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ReadReg1  => InstRsMuxSignal,
+        ReadReg2  => InstRtMuxSignal,
+        WriteReg  => WriteRegisterSignalReg,
+        WriteData => MemToRegMuxOutSignal,
+        RegWriteCtrl => RegWrite,
+        ReadData1 => ReadReg1OutSignal,
+        ReadData2 => ReadReg2OutSignal
     );
+ 
     
      ALUMuxCall  : ALUMux
      PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ReadData2 => ReadReg2OutSignal,
+        SignExtend  => SignExtendedSignal,
+        ALUSrc  => ALUSrc,
+        ALUMuxOut => ALUMuxOutSignal
     );
     
     ALUCall : ALU 
     PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ReadData1 => ReadReg1OutSignal,
+        RegToALUMuxIn  => ALUMuxOutSignal,
+        ALUctrOpCode  => ALUctrOpCode,
+        Zero  => ZeroSignal,
+        ALUResultOut => ALUResultsigOut
     );
     
     
 
     DataMemoryCall : DataMemory 
     PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        Zero => ZeroSignal,
+        clk  => clk,
+        WriteData  => ReadReg2OutSignal,
+        ALUResult  => ALUResultsigOut,
+        MemWrite => MemWrite,
+        MemRead => MemRead,
+        ReadData => DataMemorySignalOut
     );
     
     MemToRegMuxCall : MemToRegMux 
     PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        ReadDataMem => DataMemorySignalOut,
+        ALUResult  => ALUResultsigOut,
+        MemToReg  => MemToReg,
+        MemToRegMuxOut  => MemToRegMuxOutSignal
     );
+
+    ZeroAndBranchSignal <= ZeroSignal and Branch;        
 
     BranchMuxCall : BranchMux 
     PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        PCPlusFour => Instruction_Adder_Component_Signal,
+        BranchALUResult  => BranchJumpAdderALUResult,
+        PCSrc => ZeroAndBranchSignal ,
+        NextPC => BranchMuxSignalOut 
     );
+
+    JumpFullSignal <= PCMostSig & ShiftJumpSignalOut;
 
     JumpMuxCall : JumpMux 
     PORT MAP(
-        clk => clk,
-        RS  => RS,
-        RT  => RT,
-        RD  => RD,
-        Result => Result,
-        RegWr => RegWr,
-        busA => busA,
-        busB => busB
+        Jump => Jump,
+        JumpAddressIn  => JumpFullSignal,
+        BranchMuxIn  => BranchMuxSignalOut,
+        PCOut => PCOutSignal 
     );
     
-
 end Structural;
