@@ -32,17 +32,7 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity Datapath is
-  Port (clk : in STD_LOGIC;
-        RegDst : in STD_LOGIC;
-        Jump    : in STD_LOGIC;
-        Branch  : in STD_LOGIC;
-        MemRead : in STD_LOGIC;
-        MemToReg : in STD_LOGIC;
-        ALUctrOpCode : in STD_LOGIC_VECTOR(3 downto 0);
-        MemWrite : in STD_LOGIC;
-        ALUSrc : in STD_LOGIC;
-        RegWrite : in STD_LOGIC
-  );
+  Port (clk : in STD_LOGIC);
 end Datapath;
 
 architecture Structural of Datapath is
@@ -148,6 +138,18 @@ architecture Structural of Datapath is
         PCOut   : inout STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
+    Component ControlUnit
+        Port (InstOpCode : in STD_LOGIC_VECTOR(3 downto 0);
+        RegDst  : out STD_LOGIC;
+        Jump  : out STD_LOGIC;
+        Branch  : out STD_LOGIC;
+        MemRead  : out STD_LOGIC;
+        MemToReg  : out STD_LOGIC;
+        ALUOpCode  : out STD_LOGIC_VECTOR(3 downto 0);
+        MemWrite  : out STD_LOGIC;
+        ALUSrc  : out STD_LOGIC;
+        RegWrite  : out STD_LOGIC);
+    End Component;
     
     FOR ALL : ALU use ENTITY work.ALU(Behavioral);
     FOR ALL : ALUMux use ENTITY work.ALUMux(Behavioral);
@@ -164,6 +166,7 @@ architecture Structural of Datapath is
     FOR ALL : ShiftJump use ENTITY work.ShiftJump(Behavioral);
     FOR ALL : SignExtension use ENTITY work.SignExtension(Behavioral);
     FOR ALL : JumpMux use ENTITY work.JumpMux(Behavioral);
+    FOR ALL : ControlUnit use ENTITY work.ControlUnit(Behavioral);
     
     signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
     signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0);
@@ -196,6 +199,19 @@ architecture Structural of Datapath is
     signal JumpFullSignal : STD_LOGIC_VECTOR(15 downto 0);
     signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0);
     
+    --Control Unit signals.
+    signal OpCodeSignal : STD_LOGIC_VECTOR(3 downto 0);
+    signal ALUOpCodeSignal : STD_LOGIC_VECTOR(3 downto 0);
+    signal RegDstSignal : STD_LOGIC;
+    signal JumpSignal : STD_LOGIC;
+    signal BranchSignal : STD_LOGIC;
+    signal MemReadSignal : STD_LOGIC;
+    signal MemToRegSignal : STD_LOGIC;
+    signal MemWriteSignal : STD_LOGIC;
+    signal ALUSrcSignal : STD_LOGIC;
+    signal RegWriteSignal : STD_LOGIC;
+    
+    
 begin
 
     
@@ -218,16 +234,31 @@ begin
         InstOut  => Instruction_Adder_Component_Signal
     );
     
-    
+    OpCodeSignal <= InstDataSignal(15 downto 12);
     PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
     InstRsMuxSignal <= InstDataSignal(11 downto 8);
     InstRtMuxSignal <= InstDataSignal(7 downto 4);
     InstRdMuxSignal <= InstDataSignal(3 downto 0);
     JumpShifterSignal <= InstDataSignal(11 downto 0);
     
+    ControlUnitCall : ControlUnit
+     PORT MAP(
+        InstOpCode => OpCodeSignal,
+        RegDst => RegDstSignal,
+        Jump  => JumpSignal,
+        Branch  => BranchSignal,
+        MemRead => MemReadSignal,
+        MemToReg => MemToRegSignal,
+        ALUOpCode => ALUOpCodeSignal,
+        MemWrite => MemWriteSignal,
+        ALUSrc => ALUSrcSignal,
+        RegWrite => RegWriteSignal
+    );
+    
+    
      InstMemToRegMuxCall : InstMemToRegMux
      PORT MAP(
-        RegDst => RegDst,
+        RegDst => RegDstSignal,
         Inst1Rs  => InstRtMuxSignal,
         Inst2Rd  => InstRdMuxSignal,
         MuxOut => WriteRegisterSignalReg
@@ -266,7 +297,7 @@ begin
         ReadReg2  => InstRtMuxSignal,
         WriteReg  => WriteRegisterSignalReg,
         WriteData => MemToRegMuxOutSignal,
-        RegWriteCtrl => RegWrite,
+        RegWriteCtrl => RegWriteSignal,
         ReadData1 => ReadReg1OutSignal,
         ReadData2 => ReadReg2OutSignal
     );
@@ -276,7 +307,7 @@ begin
      PORT MAP(
         ReadData2 => ReadReg2OutSignal,
         SignExtend  => SignExtendedSignal,
-        ALUSrc  => ALUSrc,
+        ALUSrc  => ALUSrcSignal,
         ALUMuxOut => ALUMuxOutSignal
     );
     
@@ -284,7 +315,7 @@ begin
     PORT MAP(
         ReadData1 => ReadReg1OutSignal,
         RegToALUMuxIn  => ALUMuxOutSignal,
-        ALUctrOpCode  => ALUctrOpCode,
+        ALUctrOpCode  => ALUOpCodeSignal,
         Zero  => ZeroSignal,
         ALUResultOut => ALUResultsigOut
     );
@@ -297,8 +328,8 @@ begin
         clk  => clk,
         WriteData  => ReadReg2OutSignal,
         ALUResult  => ALUResultsigOut,
-        MemWrite => MemWrite,
-        MemRead => MemRead,
+        MemWrite => MemWriteSignal,
+        MemRead => MemReadSignal,
         ReadData => DataMemorySignalOut
     );
     
@@ -306,11 +337,11 @@ begin
     PORT MAP(
         ReadDataMem => DataMemorySignalOut,
         ALUResult  => ALUResultsigOut,
-        MemToReg  => MemToReg,
+        MemToReg  => MemToRegSignal,
         MemToRegMuxOut  => MemToRegMuxOutSignal
     );
 
-    ZeroAndBranchSignal <= ZeroSignal and Branch;        
+    ZeroAndBranchSignal <= ZeroSignal and BranchSignal;        
 
     BranchMuxCall : BranchMux 
     PORT MAP(
@@ -324,7 +355,7 @@ begin
 
     JumpMuxCall : JumpMux 
     PORT MAP(
-        Jump => Jump,
+        Jump => JumpSignal,
         JumpAddressIn  => JumpFullSignal,
         BranchMuxIn  => BranchMuxSignalOut,
         PCOut => PCOutSignal 
