@@ -67,7 +67,7 @@ signal Memory : InstMem := (
         "0110100110010000",   --addi t2 t2 0x0        add 0000 to t2
         "1110100110010100",   --sll t2 t2 4           shift t2 left four
         "0110100110010000",   --addi t2 t2 0x0        add 0000 to t2
-        "1001010110010000",   --sw t2 0(a0)           store t2 into a0
+        "1001100101010000",   --sw t2 0(a0)           store t2 into a0
         "1101000000100101",   --j Endif               jump endif to avoid else statement
         "0100001100110100",   --mul v2 v2 4           multiply v2 by four
         "0011010001000011",   --xor v3 v3 v2          xor v3 and v2
@@ -79,7 +79,7 @@ signal Memory : InstMem := (
         "0110100110011111",   --addi t2 t2 0xF        add 1111 to t2
         "1110100110010100",   --sll t2 t2 4           shift l2 left four
         "0110100110011111",   --addi t2 t2 0xF        add 1111 to t2
-        "1001010110010000",   --sw t2 0(a0)           store t2 into ao
+        "1001100101010000",   --sw t2 0(a0)           store t2 into ao
         "0110010101010010",   --addi a0 a0 2          add 2 to ao
         "1101000000000000"   --j Loop                jump to Loop -40 lines
          );
