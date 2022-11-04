@@ -39,40 +39,40 @@ architecture Structural of Datapath is
 
     Component ALU
         PORT (ReadData1   : in STD_LOGIC_VECTOR(15 downto 0);
-            RegToALUMuxIn   : in STD_LOGIC_VECTOR(15 downto 0);
-            ALUctrOpCode  : in STD_LOGIC_VECTOR(3 downto 0);
-            Zero    : out std_logic;
-            ALUResultOut  : out STD_LOGIC_VECTOR(15 downto 0));
+              RegToALUMuxIn   : in STD_LOGIC_VECTOR(15 downto 0);
+              ALUctrOpCode  : in STD_LOGIC_VECTOR(3 downto 0);
+              Zero    : out std_logic;
+              ALUResultOut  : out STD_LOGIC_VECTOR(15 downto 0));
     END Component;
     
     Component ALUMux
         Port (ReadData2 : in STD_LOGIC_VECTOR(15 downto 0);
-        SignExtend : in STD_LOGIC_VECTOR(15 downto 0);
-        ALUSrc  : in STD_LOGIC;
-        ALUMuxOut   : out STD_LOGIC_VECTOR(15 downto 0));
+              SignExtend : in STD_LOGIC_VECTOR(15 downto 0);
+              ALUSrc  : in STD_LOGIC;
+              ALUMuxOut   : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component BranchJumpAdder
         Port (ShiftInput : in STD_LOGIC_VECTOR(15 downto 0);
-         PCAddress : in STD_LOGIC_VECTOR(15 downto 0);
-         ALUResult  : out STD_LOGIC_VECTOR(15 downto 0));
+              PCAddress : in STD_LOGIC_VECTOR(15 downto 0);
+              ALUResult  : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component BranchMux
         Port (PCPlusFour : in STD_LOGIC_VECTOR(15 downto 0);
-        BranchALUResult : in STD_LOGIC_VECTOR(15 downto 0);
-        PCSrc  : in STD_LOGIC;
-        NextPC   : out STD_LOGIC_VECTOR(15 downto 0));
+              BranchALUResult : in STD_LOGIC_VECTOR(15 downto 0);
+              PCSrc  : in STD_LOGIC;
+              NextPC   : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component DataMemory
         Port (Zero : in STD_LOGIC;
-        clk  : in STD_LOGIC;
-        WriteData : in STD_LOGIC_VECTOR(15 downto 0);
-        ALUResult : in STD_LOGIC_VECTOR(15 downto 0);
-        MemWrite    : in STD_LOGIC;
-        MemRead     : in STD_LOGIC;
-        ReadData    : out STD_LOGIC_VECTOR(15 downto 0));
+              clk  : in STD_LOGIC;
+              WriteData : in STD_LOGIC_VECTOR(15 downto 0);
+              ALUResult : in STD_LOGIC_VECTOR(15 downto 0);
+              MemWrite    : in STD_LOGIC;
+              MemRead     : in STD_LOGIC;
+              ReadData    : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component InstMemToRegMux
@@ -228,7 +228,7 @@ begin
         InstData  => InstDataSignal
     );
     
-     Instruction_Adder_ComponentCall : Instruction_Adder_Component
+    Instruction_Adder_ComponentCall : Instruction_Adder_Component
      PORT MAP(
         InstIn => pc_out_signal,
         InstOut  => Instruction_Adder_Component_Signal
@@ -256,7 +256,7 @@ begin
     );
     
     
-     InstMemToRegMuxCall : InstMemToRegMux
+    InstMemToRegMuxCall : InstMemToRegMux
      PORT MAP(
         RegDst => RegDstSignal,
         Inst1Rs  => InstRtMuxSignal,
@@ -264,33 +264,33 @@ begin
         MuxOut => WriteRegisterSignalReg
     );
     
-     SignExtensionCall : SignExtension
+    SignExtensionCall : SignExtension
      PORT MAP(
         DataIn => InstRdMuxSignal, --Rd
         ExtendedData  => SignExtendedSignal
     );
     
-     ShiftBranchCall : ShiftBranch
+    ShiftBranchCall : ShiftBranch
      PORT MAP(
         SignExtend => SignExtendedSignal,
         ShiftOutBranch  => ShiftOutBranchSignal
     );
     
     
-     BranchJumpAdderCall : BranchJumpAdder
+    BranchJumpAdderCall : BranchJumpAdder
      PORT MAP(
         ShiftInput => ShiftOutBranchSignal,
         PCAddress  => Instruction_Adder_Component_Signal,
         ALUResult  => BranchJumpAdderALUResult
     );
     
-     ShiftJumpCall : ShiftJump
+    ShiftJumpCall : ShiftJump
      PORT MAP(
         ShiftAddress => JumpShifterSignal,
         ShiftOut  => ShiftJumpSignalOut
     );
 
-  RegFileCall : RegFile
+    RegFileCall : RegFile
      PORT MAP(
         clk => clk,
         ReadReg1  => InstRsMuxSignal,
@@ -303,7 +303,7 @@ begin
     );
  
     
-     ALUMuxCall  : ALUMux
+    ALUMuxCall  : ALUMux
      PORT MAP(
         ReadData2 => ReadReg2OutSignal,
         SignExtend  => SignExtendedSignal,
@@ -360,5 +360,5 @@ begin
         BranchMuxIn  => BranchMuxSignalOut,
         PCOut => PCOutSignal 
     );
-    
+    InitialPCSignal <= PCOutSignal;
 end Structural;
