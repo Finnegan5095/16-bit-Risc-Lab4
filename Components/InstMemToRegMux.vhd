@@ -42,6 +42,16 @@ end InstMemToRegMux;
 architecture Behavioral of InstMemToRegMux is
 begin
 
-MuxOut <= Inst2Rd WHEN RegDst = '1' ELSE Inst1Rs; 
+--MuxOut <= Inst2Rd WHEN RegDst = '1' ELSE Inst1Rs; 
+process (RegDst, Inst2Rd, Inst1Rs) 
+   begin
+    if (RegDst = '0') then
+        MuxOut <= Inst1Rs;
+    elsif (RegDst = '1') then
+        MuxOut <= Inst2Rd;
+    else
+        MuxOut <= "HHHH";
+    end if;
+    end process;
 
 end Behavioral;

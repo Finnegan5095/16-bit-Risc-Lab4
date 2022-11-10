@@ -42,6 +42,17 @@ architecture Behavioral of JumpMux is
 
 begin
 
+process (JumpAddressIn, Jump, BranchMuxIn) 
+   begin
+    if (Jump = '0') then
+        PCOut <= BranchMuxIn;
+    elsif (Jump = '1') then
+        PCOut <= JumpAddressIn;
+    else
+        PCOut <= "HHHHHHHHHHHHHHHH";
+    end if;
+    end process;
+
 PCOut <= JumpAddressIn WHEN Jump = '1' ELSE BranchMuxIn;
 
 end Behavioral;

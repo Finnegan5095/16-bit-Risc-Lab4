@@ -37,8 +37,6 @@ entity ALU is
         RegToALUMuxIn   : in STD_LOGIC_VECTOR(15 downto 0);
         ALUctrOpCode  : in STD_LOGIC_VECTOR(3 downto 0);
         Zero    : out std_logic;
-        Overflow    : out std_logic;
-        Carryout    : out std_logic;
         ALUResultOut  : out STD_LOGIC_VECTOR(15 downto 0));
 end ALU;
 

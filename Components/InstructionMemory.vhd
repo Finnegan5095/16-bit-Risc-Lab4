@@ -86,9 +86,16 @@ signal Memory : InstMem := (
 
 
 begin
-
-   InstData <= Memory(to_integer(unsigned(InstAddress))) 
-   WHEN to_integer(unsigned(InstAddress)) < 64 
-   ELSE Memory(0); 
+    process (InstAddress) 
+       begin
+    
+            if (to_integer(unsigned(InstAddress)) < 64) then
+                InstData <= Memory(to_integer(unsigned(InstAddress))); 
+            else
+    --            InstData <= Memory(0);
+                  InstData <= "1110000000000000"; --Nop insertion sll zero zero zero.
+            end if;
+    end process;
+       --InstData <= Memory(to_integer(unsigned(InstAddress))) WHEN to_integer(unsigned(InstAddress)) < 64 ELSE Memory(0); 
    
 end Behavioral;

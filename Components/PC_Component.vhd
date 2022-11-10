@@ -38,8 +38,8 @@ process (clk)
 	--if rising_edge(clk) then 
 	if falling_edge(clk) then --Ask Rob about rising/falling edge for pc counter.
 		pc_out <= pc_in;
-	else
-	   pc_out <= pc_out;
+	--else
+	   --pc_out <= pc_out;
 	end if;
 	   
 end process;
