@@ -168,48 +168,47 @@ architecture Structural of Datapath is
     FOR ALL : JumpMux use ENTITY work.JumpMux(Behavioral);
     FOR ALL : ControlUnit use ENTITY work.ControlUnit(Behavioral);
     
-    signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
-    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
---    signal InstAddressSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal InstDataSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal InstInAdderSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal InstOutAdderSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0)                      := "0000000000000000";
+    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0)                        := "0000000000000000";
+    signal InstDataSignal : STD_LOGIC_VECTOR(15 downto 0)                       := "0000000000000000";
+    signal InstInAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                    := "0000000000000000";
+    signal InstOutAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
     
-    signal InstRsMuxSignal : STD_LOGIC_VECTOR(3 downto 0);
-    signal InstRtMuxSignal : STD_LOGIC_VECTOR(3 downto 0);
-    signal InstRdMuxSignal : STD_LOGIC_VECTOR(3 downto 0);
+    signal InstRsMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
+    signal InstRtMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
+    signal InstRdMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
     
-    signal WriteRegisterSignalReg : STD_LOGIC_VECTOR(3 downto 0); 
-    signal Instruction_Adder_Component_Signal : STD_LOGIC_VECTOR(15 downto 0);
-    signal SignExtendedSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal JumpShifterSignal : STD_LOGIC_VECTOR(11 downto 0);
-    signal ReadReg1OutSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal ReadReg2OutSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal ALUMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal ZeroSignal : STD_LOGIC;
-    signal ALUResultsigOut : STD_LOGIC_VECTOR(15 downto 0);
-    signal DataMemorySignalOut : STD_LOGIC_VECTOR(15 downto 0);
-    signal MemToRegMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal ShiftOutBranchSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal PCMostSig : STD_LOGIC_VECTOR(2 downto 0);
-    signal BranchJumpAdderALUResult : STD_LOGIC_VECTOR(15 downto 0);
-    signal ShiftJumpSignalOut : STD_LOGIC_VECTOR(12 downto 0);
-    signal ZeroAndBranchSignal : STD_LOGIC;
-    signal BranchMuxSignalOut : STD_LOGIC_VECTOR(15 downto 0);
-    signal JumpFullSignal : STD_LOGIC_VECTOR(15 downto 0);
-    signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0);
+    signal WriteRegisterSignalReg : STD_LOGIC_VECTOR(3 downto 0)                := "0000"; 
+    signal Instruction_Adder_Component_Signal : STD_LOGIC_VECTOR(15 downto 0)   := "0000000000000000";
+    signal SignExtendedSignal : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
+    signal JumpShifterSignal : STD_LOGIC_VECTOR(11 downto 0)                    := "000000000000";
+    signal ReadReg1OutSignal : STD_LOGIC_VECTOR(15 downto 0)                    := "0000000000000000";
+    signal ReadReg2OutSignal : STD_LOGIC_VECTOR(15 downto 0)                    := "0000000000000000";
+    signal ALUMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0)                      := "0000000000000000";
+    signal ZeroSignal : STD_LOGIC                                               := '0';
+    signal ALUResultsigOut : STD_LOGIC_VECTOR(15 downto 0)                      := "0000000000000000";
+    signal DataMemorySignalOut : STD_LOGIC_VECTOR(15 downto 0)                  := "0000000000000000";
+    signal MemToRegMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0)                 := "0000000000000000";
+    signal ShiftOutBranchSignal : STD_LOGIC_VECTOR(15 downto 0)                 := "0000000000000000";
+    signal PCMostSig : STD_LOGIC_VECTOR(2 downto 0) := "000";
+    signal BranchJumpAdderALUResult : STD_LOGIC_VECTOR(15 downto 0)             := "0000000000000000";
+    signal ShiftJumpSignalOut : STD_LOGIC_VECTOR(12 downto 0)                   := "0000000000000";
+    signal ZeroAndBranchSignal : STD_LOGIC                                      := '0';
+    signal BranchMuxSignalOut : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
+    signal JumpFullSignal : STD_LOGIC_VECTOR(15 downto 0)                       := "0000000000000000";
+    signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0)                          := "0000000000000000";
     
     --Control Unit signals.
-    signal OpCodeSignal : STD_LOGIC_VECTOR(3 downto 0);
-    signal ALUOpCodeSignal : STD_LOGIC_VECTOR(3 downto 0);
-    signal RegDstSignal : STD_LOGIC;
-    signal JumpSignal : STD_LOGIC;
-    signal BranchSignal : STD_LOGIC;
-    signal MemReadSignal : STD_LOGIC;
-    signal MemToRegSignal : STD_LOGIC;
-    signal MemWriteSignal : STD_LOGIC;
-    signal ALUSrcSignal : STD_LOGIC;
-    signal RegWriteSignal : STD_LOGIC;
+    signal OpCodeSignal : STD_LOGIC_VECTOR(3 downto 0)                          := "0000";
+    signal ALUOpCodeSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
+    signal RegDstSignal : STD_LOGIC                                             := '0';
+    signal JumpSignal : STD_LOGIC                                               := '0';
+    signal BranchSignal : STD_LOGIC                                             := '0';
+    signal MemReadSignal : STD_LOGIC                                            := '0';
+    signal MemToRegSignal : STD_LOGIC                                           := '0';
+    signal MemWriteSignal : STD_LOGIC                                           := '0';
+    signal ALUSrcSignal : STD_LOGIC                                             := '0';
+    signal RegWriteSignal : STD_LOGIC                                           := '0';
     
     
 begin

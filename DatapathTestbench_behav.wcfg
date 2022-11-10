@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1580001fs"></ZoomEndTime>
-      <Cursor1Time time="71023fs"></Cursor1Time>
+      <ZoomEndTime time="2621946fs"></ZoomEndTime>
+      <Cursor1Time time="1580000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="548"></NameColumnWidth>
       <ValueColumnWidth column_width="216"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="group202" type="group">
       <obj_property name="label">DatapathSignals</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -169,73 +169,41 @@
          <obj_property name="ObjectShortName">ALUOpCodeSignal[3:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegDstSignal" type="logic">
-         <obj_property name="ElementShortName">RegDstSignal</obj_property>
-         <obj_property name="ObjectShortName">RegDstSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpSignal" type="logic">
-         <obj_property name="ElementShortName">JumpSignal</obj_property>
-         <obj_property name="ObjectShortName">JumpSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchSignal" type="logic">
-         <obj_property name="ElementShortName">BranchSignal</obj_property>
-         <obj_property name="ObjectShortName">BranchSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemReadSignal" type="logic">
-         <obj_property name="ElementShortName">MemReadSignal</obj_property>
-         <obj_property name="ObjectShortName">MemReadSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemToRegSignal" type="logic">
-         <obj_property name="ElementShortName">MemToRegSignal</obj_property>
-         <obj_property name="ObjectShortName">MemToRegSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemWriteSignal" type="logic">
-         <obj_property name="ElementShortName">MemWriteSignal</obj_property>
-         <obj_property name="ObjectShortName">MemWriteSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/ALUSrcSignal" type="logic">
-         <obj_property name="ElementShortName">ALUSrcSignal</obj_property>
-         <obj_property name="ObjectShortName">ALUSrcSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegWriteSignal" type="logic">
-         <obj_property name="ElementShortName">RegWriteSignal</obj_property>
-         <obj_property name="ObjectShortName">RegWriteSignal</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group78" type="group">
-      <obj_property name="label">Test Controls</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegDstSignal" type="logic">
-         <obj_property name="ElementShortName">RegDstSignal</obj_property>
-         <obj_property name="ObjectShortName">RegDstSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpSignal" type="logic">
-         <obj_property name="ElementShortName">JumpSignal</obj_property>
-         <obj_property name="ObjectShortName">JumpSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchSignal" type="logic">
-         <obj_property name="ElementShortName">BranchSignal</obj_property>
-         <obj_property name="ObjectShortName">BranchSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemReadSignal" type="logic">
-         <obj_property name="ElementShortName">MemReadSignal</obj_property>
-         <obj_property name="ObjectShortName">MemReadSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemToRegSignal" type="logic">
-         <obj_property name="ElementShortName">MemToRegSignal</obj_property>
-         <obj_property name="ObjectShortName">MemToRegSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/MemWriteSignal" type="logic">
-         <obj_property name="ElementShortName">MemWriteSignal</obj_property>
-         <obj_property name="ObjectShortName">MemWriteSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/ALUSrcSignal" type="logic">
-         <obj_property name="ElementShortName">ALUSrcSignal</obj_property>
-         <obj_property name="ObjectShortName">ALUSrcSignal</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegWriteSignal" type="logic">
-         <obj_property name="ElementShortName">RegWriteSignal</obj_property>
-         <obj_property name="ObjectShortName">RegWriteSignal</obj_property>
+      <wvobject fp_name="group78" type="group">
+         <obj_property name="label">Test Controls</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/DatapathTestbench/DUT/RegDstSignal" type="logic">
+            <obj_property name="ElementShortName">RegDstSignal</obj_property>
+            <obj_property name="ObjectShortName">RegDstSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/JumpSignal" type="logic">
+            <obj_property name="ElementShortName">JumpSignal</obj_property>
+            <obj_property name="ObjectShortName">JumpSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/BranchSignal" type="logic">
+            <obj_property name="ElementShortName">BranchSignal</obj_property>
+            <obj_property name="ObjectShortName">BranchSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/MemReadSignal" type="logic">
+            <obj_property name="ElementShortName">MemReadSignal</obj_property>
+            <obj_property name="ObjectShortName">MemReadSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/MemToRegSignal" type="logic">
+            <obj_property name="ElementShortName">MemToRegSignal</obj_property>
+            <obj_property name="ObjectShortName">MemToRegSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/MemWriteSignal" type="logic">
+            <obj_property name="ElementShortName">MemWriteSignal</obj_property>
+            <obj_property name="ObjectShortName">MemWriteSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/ALUSrcSignal" type="logic">
+            <obj_property name="ElementShortName">ALUSrcSignal</obj_property>
+            <obj_property name="ObjectShortName">ALUSrcSignal</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/RegWriteSignal" type="logic">
+            <obj_property name="ElementShortName">RegWriteSignal</obj_property>
+            <obj_property name="ObjectShortName">RegWriteSignal</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group82" type="group">
@@ -256,6 +224,20 @@
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="group89" type="group">
+      <obj_property name="label">InstructionAdder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/Instruction_Adder_ComponentCall/InstIn" type="array">
+         <obj_property name="ElementShortName">InstIn[15:0]</obj_property>
+         <obj_property name="ObjectShortName">InstIn[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/Instruction_Adder_ComponentCall/InstOut" type="array">
+         <obj_property name="ElementShortName">InstOut[15:0]</obj_property>
+         <obj_property name="ObjectShortName">InstOut[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
    <wvobject fp_name="group86" type="group">
       <obj_property name="label">InstructionMemory</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -273,19 +255,270 @@
          <obj_property name="ElementShortName">Memory[0:38][15:0]</obj_property>
          <obj_property name="ObjectShortName">Memory[0:38][15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[4]" type="array">
+            <obj_property name="ElementShortName">[4][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[5]" type="array">
+            <obj_property name="ElementShortName">[5][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[6]" type="array">
+            <obj_property name="ElementShortName">[6][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[7]" type="array">
+            <obj_property name="ElementShortName">[7][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[8]" type="array">
+            <obj_property name="ElementShortName">[8][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[8][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[9]" type="array">
+            <obj_property name="ElementShortName">[9][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[9][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[10]" type="array">
+            <obj_property name="ElementShortName">[10][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[10][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[11]" type="array">
+            <obj_property name="ElementShortName">[11][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[11][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[12]" type="array">
+            <obj_property name="ElementShortName">[12][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[12][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[13]" type="array">
+            <obj_property name="ElementShortName">[13][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[13][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[14]" type="array">
+            <obj_property name="ElementShortName">[14][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[14][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[15]" type="array">
+            <obj_property name="ElementShortName">[15][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[15][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[16]" type="array">
+            <obj_property name="ElementShortName">[16][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[16][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[17]" type="array">
+            <obj_property name="ElementShortName">[17][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[17][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[18]" type="array">
+            <obj_property name="ElementShortName">[18][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[18][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[19]" type="array">
+            <obj_property name="ElementShortName">[19][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[19][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[20]" type="array">
+            <obj_property name="ElementShortName">[20][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[20][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[21]" type="array">
+            <obj_property name="ElementShortName">[21][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[21][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[22]" type="array">
+            <obj_property name="ElementShortName">[22][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[22][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[23]" type="array">
+            <obj_property name="ElementShortName">[23][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[23][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[24]" type="array">
+            <obj_property name="ElementShortName">[24][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[24][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[25]" type="array">
+            <obj_property name="ElementShortName">[25][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[25][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[26]" type="array">
+            <obj_property name="ElementShortName">[26][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[26][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[27]" type="array">
+            <obj_property name="ElementShortName">[27][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[27][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[28]" type="array">
+            <obj_property name="ElementShortName">[28][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[28][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[29]" type="array">
+            <obj_property name="ElementShortName">[29][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[29][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[30]" type="array">
+            <obj_property name="ElementShortName">[30][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[30][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[31]" type="array">
+            <obj_property name="ElementShortName">[31][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[31][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[32]" type="array">
+            <obj_property name="ElementShortName">[32][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[32][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[33]" type="array">
+            <obj_property name="ElementShortName">[33][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[33][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[34]" type="array">
+            <obj_property name="ElementShortName">[34][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[34][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[35]" type="array">
+            <obj_property name="ElementShortName">[35][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[35][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[36]" type="array">
+            <obj_property name="ElementShortName">[36][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[36][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[37]" type="array">
+            <obj_property name="ElementShortName">[37][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[37][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/DatapathTestbench/DUT/InstructionMemoryCall/Memory[38]" type="array">
+            <obj_property name="ElementShortName">[38][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[38][15:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group89" type="group">
-      <obj_property name="label">InstructionAdder</obj_property>
+   <wvobject fp_name="group105" type="group">
+      <obj_property name="label">InstMemToRegMux</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/Instruction_Adder_ComponentCall/InstIn" type="array">
-         <obj_property name="ElementShortName">InstIn[15:0]</obj_property>
-         <obj_property name="ObjectShortName">InstIn[15:0]</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/Inst1Rs" type="array">
+         <obj_property name="ElementShortName">Inst1Rs[3:0]</obj_property>
+         <obj_property name="ObjectShortName">Inst1Rs[3:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/Instruction_Adder_ComponentCall/InstOut" type="array">
-         <obj_property name="ElementShortName">InstOut[15:0]</obj_property>
-         <obj_property name="ObjectShortName">InstOut[15:0]</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/Inst2Rd" type="array">
+         <obj_property name="ElementShortName">Inst2Rd[3:0]</obj_property>
+         <obj_property name="ObjectShortName">Inst2Rd[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/MuxOut" type="array">
+         <obj_property name="ElementShortName">MuxOut[3:0]</obj_property>
+         <obj_property name="ObjectShortName">MuxOut[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/RegDst" type="logic">
+         <obj_property name="ElementShortName">RegDst</obj_property>
+         <obj_property name="ObjectShortName">RegDst</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group128" type="group">
+      <obj_property name="label">RegFile</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/WriteReg" type="array">
+         <obj_property name="ElementShortName">WriteReg[3:0]</obj_property>
+         <obj_property name="ObjectShortName">WriteReg[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/WriteData" type="array">
+         <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
+         <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File" type="array">
+         <obj_property name="ElementShortName">Reg_File[0:15][15:0]</obj_property>
+         <obj_property name="ObjectShortName">Reg_File[0:15][15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/RegWriteCtrl" type="logic">
+         <obj_property name="ElementShortName">RegWriteCtrl</obj_property>
+         <obj_property name="ObjectShortName">RegWriteCtrl</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadReg2" type="array">
+         <obj_property name="ElementShortName">ReadReg2[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ReadReg2[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadReg1" type="array">
+         <obj_property name="ElementShortName">ReadReg1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ReadReg1[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadData2" type="array">
+         <obj_property name="ElementShortName">ReadData2[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ReadData2[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadData1" type="array">
+         <obj_property name="ElementShortName">ReadData1[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ReadData1[15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
    </wvobject>
@@ -335,29 +568,6 @@
          <obj_property name="ObjectShortName">RegWrite</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group105" type="group">
-      <obj_property name="label">InstMemToRegMux</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/Inst1Rs" type="array">
-         <obj_property name="ElementShortName">Inst1Rs[3:0]</obj_property>
-         <obj_property name="ObjectShortName">Inst1Rs[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/Inst2Rd" type="array">
-         <obj_property name="ElementShortName">Inst2Rd[3:0]</obj_property>
-         <obj_property name="ObjectShortName">Inst2Rd[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/MuxOut" type="array">
-         <obj_property name="ElementShortName">MuxOut[3:0]</obj_property>
-         <obj_property name="ObjectShortName">MuxOut[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/InstMemToRegMuxCall/RegDst" type="logic">
-         <obj_property name="ElementShortName">RegDst</obj_property>
-         <obj_property name="ObjectShortName">RegDst</obj_property>
-      </wvobject>
-   </wvobject>
    <wvobject fp_name="group108" type="group">
       <obj_property name="label">SignExtension</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -369,100 +579,6 @@
       <wvobject fp_name="/DatapathTestbench/DUT/SignExtensionCall/ExtendedData" type="array">
          <obj_property name="ElementShortName">ExtendedData[15:0]</obj_property>
          <obj_property name="ObjectShortName">ExtendedData[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group111" type="group">
-      <obj_property name="label">ShiftBranch</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/ShiftBranchCall/ShiftOutBranch" type="array">
-         <obj_property name="ElementShortName">ShiftOutBranch[15:0]</obj_property>
-         <obj_property name="ObjectShortName">ShiftOutBranch[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/ShiftBranchCall/SignExtend" type="array">
-         <obj_property name="ElementShortName">SignExtend[15:0]</obj_property>
-         <obj_property name="ObjectShortName">SignExtend[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group115" type="group">
-      <obj_property name="label">BranchJumpAdder</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/ALUResult" type="array">
-         <obj_property name="ElementShortName">ALUResult[15:0]</obj_property>
-         <obj_property name="ObjectShortName">ALUResult[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/PCAddress" type="array">
-         <obj_property name="ElementShortName">PCAddress[15:0]</obj_property>
-         <obj_property name="ObjectShortName">PCAddress[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/ShiftInput" type="array">
-         <obj_property name="ElementShortName">ShiftInput[15:0]</obj_property>
-         <obj_property name="ObjectShortName">ShiftInput[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group118" type="group">
-      <obj_property name="label">ShiftJump</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/ShiftJumpCall/ShiftAddress" type="array">
-         <obj_property name="ElementShortName">ShiftAddress[11:0]</obj_property>
-         <obj_property name="ObjectShortName">ShiftAddress[11:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/ShiftJumpCall/ShiftOut" type="array">
-         <obj_property name="ElementShortName">ShiftOut[12:0]</obj_property>
-         <obj_property name="ObjectShortName">ShiftOut[12:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group128" type="group">
-      <obj_property name="label">RegFile</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/WriteReg" type="array">
-         <obj_property name="ElementShortName">WriteReg[3:0]</obj_property>
-         <obj_property name="ObjectShortName">WriteReg[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/WriteData" type="array">
-         <obj_property name="ElementShortName">WriteData[15:0]</obj_property>
-         <obj_property name="ObjectShortName">WriteData[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File" type="array">
-         <obj_property name="ElementShortName">Reg_File[0:15][15:0]</obj_property>
-         <obj_property name="ObjectShortName">Reg_File[0:15][15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/RegWriteCtrl" type="logic">
-         <obj_property name="ElementShortName">RegWriteCtrl</obj_property>
-         <obj_property name="ObjectShortName">RegWriteCtrl</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadReg2" type="array">
-         <obj_property name="ElementShortName">ReadReg2[3:0]</obj_property>
-         <obj_property name="ObjectShortName">ReadReg2[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadReg1" type="array">
-         <obj_property name="ElementShortName">ReadReg1[3:0]</obj_property>
-         <obj_property name="ObjectShortName">ReadReg1[3:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadData2" type="array">
-         <obj_property name="ElementShortName">ReadData2[15:0]</obj_property>
-         <obj_property name="ObjectShortName">ReadData2[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/ReadData1" type="array">
-         <obj_property name="ElementShortName">ReadData1[15:0]</obj_property>
-         <obj_property name="ObjectShortName">ReadData1[15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
    </wvobject>
@@ -514,6 +630,99 @@
       <wvobject fp_name="/DatapathTestbench/DUT/ALUCall/ALUResultOut" type="array">
          <obj_property name="ElementShortName">ALUResultOut[15:0]</obj_property>
          <obj_property name="ObjectShortName">ALUResultOut[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group111" type="group">
+      <obj_property name="label">ShiftBranch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/ShiftBranchCall/ShiftOutBranch" type="array">
+         <obj_property name="ElementShortName">ShiftOutBranch[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ShiftOutBranch[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/ShiftBranchCall/SignExtend" type="array">
+         <obj_property name="ElementShortName">SignExtend[15:0]</obj_property>
+         <obj_property name="ObjectShortName">SignExtend[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group158" type="group">
+      <obj_property name="label">BranchMux</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/PCSrc" type="logic">
+         <obj_property name="ElementShortName">PCSrc</obj_property>
+         <obj_property name="ObjectShortName">PCSrc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/PCPlusFour" type="array">
+         <obj_property name="ElementShortName">PCPlusFour[15:0]</obj_property>
+         <obj_property name="ObjectShortName">PCPlusFour[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/NextPC" type="array">
+         <obj_property name="ElementShortName">NextPC[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NextPC[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/BranchALUResult" type="array">
+         <obj_property name="ElementShortName">BranchALUResult[15:0]</obj_property>
+         <obj_property name="ObjectShortName">BranchALUResult[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group115" type="group">
+      <obj_property name="label">BranchJumpAdder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/ALUResult" type="array">
+         <obj_property name="ElementShortName">ALUResult[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ALUResult[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/PCAddress" type="array">
+         <obj_property name="ElementShortName">PCAddress[15:0]</obj_property>
+         <obj_property name="ObjectShortName">PCAddress[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/BranchJumpAdderCall/ShiftInput" type="array">
+         <obj_property name="ElementShortName">ShiftInput[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ShiftInput[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group118" type="group">
+      <obj_property name="label">ShiftJump</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/ShiftJumpCall/ShiftAddress" type="array">
+         <obj_property name="ElementShortName">ShiftAddress[11:0]</obj_property>
+         <obj_property name="ObjectShortName">ShiftAddress[11:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/ShiftJumpCall/ShiftOut" type="array">
+         <obj_property name="ElementShortName">ShiftOut[12:0]</obj_property>
+         <obj_property name="ObjectShortName">ShiftOut[12:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group163" type="group">
+      <obj_property name="label">JumpMux</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/PCOut" type="array">
+         <obj_property name="ElementShortName">PCOut[15:0]</obj_property>
+         <obj_property name="ObjectShortName">PCOut[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/JumpAddressIn" type="array">
+         <obj_property name="ElementShortName">JumpAddressIn[15:0]</obj_property>
+         <obj_property name="ObjectShortName">JumpAddressIn[15:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/Jump" type="logic">
+         <obj_property name="ElementShortName">Jump</obj_property>
+         <obj_property name="ObjectShortName">Jump</obj_property>
+      </wvobject>
+      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/BranchMuxIn" type="array">
+         <obj_property name="ElementShortName">BranchMuxIn[15:0]</obj_property>
+         <obj_property name="ObjectShortName">BranchMuxIn[15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
    </wvobject>
@@ -580,56 +789,9 @@
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group158" type="group">
-      <obj_property name="label">BranchMux</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/PCSrc" type="logic">
-         <obj_property name="ElementShortName">PCSrc</obj_property>
-         <obj_property name="ObjectShortName">PCSrc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/PCPlusFour" type="array">
-         <obj_property name="ElementShortName">PCPlusFour[15:0]</obj_property>
-         <obj_property name="ObjectShortName">PCPlusFour[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/NextPC" type="array">
-         <obj_property name="ElementShortName">NextPC[15:0]</obj_property>
-         <obj_property name="ObjectShortName">NextPC[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/BranchMuxCall/BranchALUResult" type="array">
-         <obj_property name="ElementShortName">BranchALUResult[15:0]</obj_property>
-         <obj_property name="ObjectShortName">BranchALUResult[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group163" type="group">
-      <obj_property name="label">JumpMux</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/PCOut" type="array">
-         <obj_property name="ElementShortName">PCOut[15:0]</obj_property>
-         <obj_property name="ObjectShortName">PCOut[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/JumpAddressIn" type="array">
-         <obj_property name="ElementShortName">JumpAddressIn[15:0]</obj_property>
-         <obj_property name="ObjectShortName">JumpAddressIn[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/Jump" type="logic">
-         <obj_property name="ElementShortName">Jump</obj_property>
-         <obj_property name="ObjectShortName">Jump</obj_property>
-      </wvobject>
-      <wvobject fp_name="/DatapathTestbench/DUT/JumpMuxCall/BranchMuxIn" type="array">
-         <obj_property name="ElementShortName">BranchMuxIn[15:0]</obj_property>
-         <obj_property name="ObjectShortName">BranchMuxIn[15:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-   </wvobject>
    <wvobject fp_name="group77" type="group">
       <obj_property name="label">Final Signals</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/DatapathTestbench/clk_sig" type="logic">
          <obj_property name="ElementShortName">clk_sig</obj_property>
          <obj_property name="ObjectShortName">clk_sig</obj_property>
