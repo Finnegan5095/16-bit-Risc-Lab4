@@ -40,7 +40,12 @@ end ShiftBranch;
 architecture Behavioral of ShiftBranch is
 
 begin
+process (SignExtend)
+begin
+    ShiftOutBranch <= SignExtend(15 downto 0);
+
+end process;
 
 --ShiftOutBranch <= SignExtend(14 downto 0) & '0'; --Move bits over one and concatenate with 0 on LSB.
-ShiftOutBranch <= SignExtend(15 downto 0);
+--ShiftOutBranch <= SignExtend(15 downto 0);
 end Behavioral;

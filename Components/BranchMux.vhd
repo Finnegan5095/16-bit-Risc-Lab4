@@ -42,7 +42,18 @@ architecture Behavioral of BranchMux is
 
 begin
 
+process (PCPlusFour, PCSrc, BranchALUResult) 
+   begin
+    if (PCSrc = '0') then
+        NextPC <= PCPlusFour;
+    elsif (PCSrc = '1') then
+        NextPC <= BranchALUResult;
+    else
+        NextPC <= "HHHHHHHHHHHHHHHH";
+    end if;
+   
+    end process;
     -- NextPC gets PCPlusFour when PCSrc is low and BranchALUResult when high.
-    NextPC <= PCPlusFour WHEN PCSrc = '0' ELSE BranchALUResult;
+    --NextPC <= PCPlusFour WHEN PCSrc = '0' ELSE BranchALUResult;
 
 end Behavioral;

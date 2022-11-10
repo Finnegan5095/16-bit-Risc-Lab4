@@ -76,6 +76,8 @@ process(clk)
     --Check if we are at the rising edge of the clock and that the Reg write enable signal is '1'.
     if (Rising_edge(clk) and RegWriteCtrl = '1') then
         Reg_File(to_integer(unsigned(WriteReg))) <= WriteData;
+    else
+        Reg_File(to_integer(unsigned(WriteReg))) <= Reg_File(to_integer(unsigned(WriteReg)));
     end if;
 end process;
 end Behavioral;
