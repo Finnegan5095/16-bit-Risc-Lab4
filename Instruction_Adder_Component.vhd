@@ -42,7 +42,7 @@ architecture Behavioral of Instruction_Adder_Component is
 begin
 process(InstIn)
     begin
-        InstOut <= InstIn + x"0001"; --Incrementing by 2 bytes in hex.
+        InstOut <= InstIn + "0000000000000001"; --Incrementing by 1.
         
  end process;  
     

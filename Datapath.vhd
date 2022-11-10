@@ -28,8 +28,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
-library UNISIM;
-use UNISIM.VComponents.all;
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
 entity Datapath is
   Port (clk : in STD_LOGIC);
@@ -77,78 +77,78 @@ architecture Structural of Datapath is
     
     Component InstMemToRegMux
          Port (RegDst : in STD_LOGIC;
-        Inst1Rs   : in STD_LOGIC_VECTOR(3 downto 0);
-        Inst2Rd   : in STD_LOGIC_VECTOR(3 downto 0);
-        MuxOut  : out STD_LOGIC_VECTOR(3 downto 0));     
+               Inst1Rs   : in STD_LOGIC_VECTOR(3 downto 0);
+               Inst2Rd   : in STD_LOGIC_VECTOR(3 downto 0);
+               MuxOut  : out STD_LOGIC_VECTOR(3 downto 0));     
     End Component;
     
     Component InstructionMemory
          Port (InstAddress : in STD_LOGIC_VECTOR(15 downto 0);
-        InstData    : out STD_LOGIC_VECTOR(15 downto 0));
+               InstData    : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component Instruction_Adder_Component
         Port (InstIn : in STD_LOGIC_VECTOR(15 downto 0);
-        InstOut : out STD_LOGIC_VECTOR(15 downto 0));
+              InstOut : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component MemToRegMux
         Port (ReadDataMem : in STD_LOGIC_VECTOR(15 downto 0);
-        ALUResult : in STD_LOGIC_VECTOR(15 downto 0);
-        MemToReg  : in STD_LOGIC;
-        MemToRegMuxOut   : out STD_LOGIC_VECTOR(15 downto 0));
+              ALUResult : in STD_LOGIC_VECTOR(15 downto 0);
+              MemToReg  : in STD_LOGIC;
+              MemToRegMuxOut   : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component PC_Component
         Port (clk : in  STD_LOGIC;
-           pc_in : in  STD_LOGIC_VECTOR (15 downto 0);
-           pc_out : inout  STD_LOGIC_VECTOR (15 downto 0));
+              pc_in : in  STD_LOGIC_VECTOR (15 downto 0);
+              pc_out : inout  STD_LOGIC_VECTOR (15 downto 0));
     End Component; 
 
     Component RegFile
         Port (clk : in STD_LOGIC;
-        ReadReg1 : in STD_LOGIC_VECTOR(3 downto 0);
-        ReadReg2 : in STD_LOGIC_VECTOR(3 downto 0);
-        WriteReg : in STD_LOGIC_VECTOR(3 downto 0);
-        WriteData : in STD_LOGIC_VECTOR(15 downto 0);
-        RegWriteCtrl : in STD_LOGIC;
-        ReadData1 : out STD_LOGIC_VECTOR(15 downto 0);
-        ReadData2 : out STD_LOGIC_VECTOR(15 downto 0));
+              ReadReg1 : in STD_LOGIC_VECTOR(3 downto 0);
+              ReadReg2 : in STD_LOGIC_VECTOR(3 downto 0);
+              WriteReg : in STD_LOGIC_VECTOR(3 downto 0);
+              WriteData : in STD_LOGIC_VECTOR(15 downto 0);
+              RegWriteCtrl : in STD_LOGIC;
+              ReadData1 : out STD_LOGIC_VECTOR(15 downto 0);
+              ReadData2 : out STD_LOGIC_VECTOR(15 downto 0));
     End Component; 
     
     Component ShiftBranch
         Port (SignExtend : in STD_LOGIC_VECTOR(15 downto 0);
-        ShiftOutBranch    : out STD_LOGIC_VECTOR(15 downto 0));
+              ShiftOutBranch    : out STD_LOGIC_VECTOR(15 downto 0));
     End Component; 
     
     Component ShiftJump
         Port (ShiftAddress : in STD_LOGIC_VECTOR(11 downto 0);
-        ShiftOut    : out STD_LOGIC_VECTOR(12 downto 0));
+              ShiftOut    : out STD_LOGIC_VECTOR(12 downto 0));
     End Component; 
     
     Component SignExtension
         Port (DataIn : in STD_LOGIC_VECTOR(3 downto 0);
-        ExtendedData : out STD_LOGIC_VECTOR(15 downto 0));
+              ExtendedData : out STD_LOGIC_VECTOR(15 downto 0));
     End Component; 
     
     Component JumpMux
         Port (Jump : in STD_LOGIC; 
-        JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
-        BranchMuxIn : in STD_LOGIC_VECTOR(15 downto 0);
-        PCOut   : inout STD_LOGIC_VECTOR(15 downto 0));
+              JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
+              BranchMuxIn : in STD_LOGIC_VECTOR(15 downto 0);
+              PCOut   : inout STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component ControlUnit
         Port (InstOpCode : in STD_LOGIC_VECTOR(3 downto 0);
-        RegDst  : out STD_LOGIC;
-        Jump  : out STD_LOGIC;
-        Branch  : out STD_LOGIC;
-        MemRead  : out STD_LOGIC;
-        MemToReg  : out STD_LOGIC;
-        ALUOpCode  : out STD_LOGIC_VECTOR(3 downto 0);
-        MemWrite  : out STD_LOGIC;
-        ALUSrc  : out STD_LOGIC;
-        RegWrite  : out STD_LOGIC);
+              RegDst  : out STD_LOGIC;
+              Jump  : out STD_LOGIC;
+              Branch  : out STD_LOGIC;
+              MemRead  : out STD_LOGIC;
+              MemToReg  : out STD_LOGIC;
+              ALUOpCode  : out STD_LOGIC_VECTOR(3 downto 0);
+              MemWrite  : out STD_LOGIC;
+              ALUSrc  : out STD_LOGIC;
+              RegWrite  : out STD_LOGIC);
     End Component;
     
     FOR ALL : ALU use ENTITY work.ALU(Behavioral);
@@ -169,7 +169,7 @@ architecture Structural of Datapath is
     FOR ALL : ControlUnit use ENTITY work.ControlUnit(Behavioral);
     
     signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
-    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0);
+    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
 --    signal InstAddressSignal : STD_LOGIC_VECTOR(15 downto 0);
     signal InstDataSignal : STD_LOGIC_VECTOR(15 downto 0);
     signal InstInAdderSignal : STD_LOGIC_VECTOR(15 downto 0);
@@ -234,13 +234,6 @@ begin
         InstOut  => Instruction_Adder_Component_Signal
     );
     
-    OpCodeSignal <= InstDataSignal(15 downto 12);
-    PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
-    InstRsMuxSignal <= InstDataSignal(11 downto 8);
-    InstRtMuxSignal <= InstDataSignal(7 downto 4);
-    InstRdMuxSignal <= InstDataSignal(3 downto 0);
-    JumpShifterSignal <= InstDataSignal(11 downto 0);
-    
     ControlUnitCall : ControlUnit
      PORT MAP(
         InstOpCode => OpCodeSignal,
@@ -254,7 +247,6 @@ begin
         ALUSrc => ALUSrcSignal,
         RegWrite => RegWriteSignal
     );
-    
     
     InstMemToRegMuxCall : InstMemToRegMux
      PORT MAP(
@@ -275,7 +267,6 @@ begin
         SignExtend => SignExtendedSignal,
         ShiftOutBranch  => ShiftOutBranchSignal
     );
-    
     
     BranchJumpAdderCall : BranchJumpAdder
      PORT MAP(
@@ -301,7 +292,6 @@ begin
         ReadData1 => ReadReg1OutSignal,
         ReadData2 => ReadReg2OutSignal
     );
- 
     
     ALUMuxCall  : ALUMux
      PORT MAP(
@@ -320,8 +310,6 @@ begin
         ALUResultOut => ALUResultsigOut
     );
     
-    
-
     DataMemoryCall : DataMemory 
     PORT MAP(
         Zero => ZeroSignal,
@@ -341,8 +329,6 @@ begin
         MemToRegMuxOut  => MemToRegMuxOutSignal
     );
 
-    ZeroAndBranchSignal <= ZeroSignal and BranchSignal;        
-
     BranchMuxCall : BranchMux 
     PORT MAP(
         PCPlusFour => Instruction_Adder_Component_Signal,
@@ -351,8 +337,6 @@ begin
         NextPC => BranchMuxSignalOut 
     );
 
-    JumpFullSignal <= PCMostSig & ShiftJumpSignalOut;
-
     JumpMuxCall : JumpMux 
     PORT MAP(
         Jump => JumpSignal,
@@ -360,5 +344,21 @@ begin
         BranchMuxIn  => BranchMuxSignalOut,
         PCOut => PCOutSignal 
     );
+    
+    
+    process (PCOutSignal, InstDataSignal, Instruction_Adder_Component_Signal, ShiftJumpSignalOut, ZeroSignal, BranchSignal )
+    begin
+    
+    OpCodeSignal <= InstDataSignal(15 downto 12);
+    PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
+    InstRsMuxSignal <= InstDataSignal(11 downto 8);
+    InstRtMuxSignal <= InstDataSignal(7 downto 4);
+    InstRdMuxSignal <= InstDataSignal(3 downto 0);
+    JumpShifterSignal <= InstDataSignal(11 downto 0);
+    JumpFullSignal <= PCMostSig & ShiftJumpSignalOut;
+    ZeroAndBranchSignal <= ZeroSignal and BranchSignal;    
     InitialPCSignal <= PCOutSignal;
+    end process;
+    
+    
 end Structural;
