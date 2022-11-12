@@ -41,7 +41,8 @@ end ALUMux;
 architecture Behavioral of ALUMux is
 
 begin
-process (ReadData2, ALUSrc, SignExtend) 
+   
+    process (ReadData2, ALUSrc, SignExtend) 
    begin
     if (ALUSrc = '0') then
         ALUMuxOut <= ReadData2;
@@ -51,7 +52,5 @@ process (ReadData2, ALUSrc, SignExtend)
         ALUMuxOut <= "HHHHHHHHHHHHHHHH";
     end if;
     end process;
-    -- ALUMuxOut gets ReadReg2 when ALUSrc is low and SignExtend when high.
-    --ALUMuxOut <= ReadData2 WHEN ALUSrc = '0' ELSE SignExtend;
 
 end Behavioral;

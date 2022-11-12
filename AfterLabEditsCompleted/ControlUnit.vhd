@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ControlUnit is
-  Port (InstOpCode : in STD_LOGIC_VECTOR(3 downto 0);
+  Port (InstOpCode : in STD_LOGIC_VECTOR(15 downto 0);
         RegDst  : out STD_LOGIC;
         Jump  : out STD_LOGIC;
         Branch  : out STD_LOGIC;
@@ -51,7 +51,7 @@ begin
 Process(InstOpCode) is
 begin
     
-    CASE InstOpCode is   
+    CASE InstOpCode(15 downto 12) is   
         When "0000" => -- Add (R-type)
             RegDst <= '1';
             Jump <= '0';
@@ -160,7 +160,7 @@ begin
             MemRead <= '0';
             MemToReg <= '0';
             MemWrite <= '0';
-            ALUSrc <= '0';
+            ALUSrc <= '1';
             RegWrite <= '0';
             ALUOpCode <= "1010";
         When "1011" => --blt (I-type)
@@ -183,7 +183,7 @@ begin
             ALUSrc <= '0';
             RegWrite <= '0';
             ALUOpCode <= "1100";
-        When "1101" => -- sll (I-type)
+        When "1110" => -- sll (I-type)
             RegDst <= '0';
             Jump <= '0';
             Branch <= '0';
@@ -193,7 +193,7 @@ begin
             ALUSrc <= '1';
             RegWrite <= '1';
             ALUOpCode <= "1101";
-        When "1110" => -- j (J-type)
+        When "1101" => -- j (J-type)
             RegDst <= '0';
             Jump <= '1';
             Branch <= '0';

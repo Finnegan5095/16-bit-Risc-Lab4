@@ -6,10 +6,10 @@ entity DatapathTestbench is
 end DatapathTestbench;
 
 architecture structural of DatapathTestbench is
-    constant TIME_DELAY : time := 40 ns;
-    constant NUM_VALS : integer := 39;
+    constant TIME_DELAY : time := 100 ns;
+    constant NUM_VALS : integer := 150;
      
-    signal clk_sig : std_logic := '0'; 
+    signal clk_sig : std_logic := '1'; 
       
     begin
     DUT : entity work.Datapath(structural) port map (
@@ -35,7 +35,7 @@ architecture structural of DatapathTestbench is
 --              wait for TIME_DELAY;
 --            end loop;
 --            wait;
---  end process stimulus;
+--        end process stimulus;
         
  
 

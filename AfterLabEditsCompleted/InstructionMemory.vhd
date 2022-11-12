@@ -40,11 +40,16 @@ end InstructionMemory;
 
 architecture Behavioral of InstructionMemory is
 
-type InstMem is array (0 to 38) of STD_LOGIC_VECTOR(15 downto 0); --Declaring array type that will store all 16-bit instructions vectors.
+type InstMem is array (0 to 43) of STD_LOGIC_VECTOR(15 downto 0); --Declaring array type that will store all 16-bit instructions vectors.
 
 signal Memory : InstMem := (
+        "1110000000000000",   --Nop insertion
+        "1110000000000000",   --Nop insertion
+        "1110000000000000",   --Nop insertion
+        "1110000000000000",   --Nop insertion
+        "1110000000000000",   --Nop insertion
         "1100011000000001",   --bgt a0 zero ZeroLine  branch 1 line (pc incremented by 2*1)
-        "1101000000100111",   --j Exit                jump 40 lines (pc incremented by 2*40)
+        "1101000001111111",   --j Exit                jump 40 lines (pc incremented by 2*40)
         "0111011001100001",   --subi a1 a1 1          subtract 1 from a1
         "1000010101110000",   --lw t0 0(a0)           put contents of a0 into t0
         "1110100010000100",   --sll t1 t1 4           shift t1 left four
@@ -86,16 +91,21 @@ signal Memory : InstMem := (
 
 
 begin
-    process (InstAddress) 
-       begin
-    
-            if (to_integer(unsigned(InstAddress)) < 64) then
-                InstData <= Memory(to_integer(unsigned(InstAddress))); 
-            else
-    --            InstData <= Memory(0);
-                  InstData <= "1110000000000000"; --Nop insertion sll zero zero zero.
-            end if;
-    end process;
-       --InstData <= Memory(to_integer(unsigned(InstAddress))) WHEN to_integer(unsigned(InstAddress)) < 64 ELSE Memory(0); 
+
+   process (InstAddress) 
+   begin
+   
+        if (to_integer(unsigned(InstAddress)) < 43) then
+            InstData <= Memory(to_integer(unsigned(InstAddress))); 
+        else
+--            InstData <= Memory(0);
+              InstData <= "1110000000000000"; --Nop insertion.
+        end if;   
+       
+--        InstData <= Memory(to_integer(unsigned(InstAddress))) 
+--        WHEN to_integer(unsigned(InstAddress)) < 64 
+--        ELSE Memory(0); 
+   
+   end process;
    
 end Behavioral;

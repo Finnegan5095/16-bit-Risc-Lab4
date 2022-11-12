@@ -61,7 +61,9 @@ architecture Structural of Datapath is
     Component BranchMux
         Port (PCPlusFour : in STD_LOGIC_VECTOR(15 downto 0);
               BranchALUResult : in STD_LOGIC_VECTOR(15 downto 0);
-              PCSrc  : in STD_LOGIC;
+              Zero : in STD_LOGIC;
+              Branch : in STD_LOGIC;
+              --PCSrc  : in STD_LOGIC;
               NextPC   : out STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
@@ -133,13 +135,15 @@ architecture Structural of Datapath is
     
     Component JumpMux
         Port (Jump : in STD_LOGIC; 
-              JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
+              --JumpAddressIn : in STD_LOGIC_VECTOR(15 downto 0);
+              PCMostSig : in std_logic_vector(2 downto 0);
+              ShiftJumpSignalOut : in std_logic_vector(12 downto 0);
               BranchMuxIn : in STD_LOGIC_VECTOR(15 downto 0);
               PCOut   : inout STD_LOGIC_VECTOR(15 downto 0));
     End Component;
     
     Component ControlUnit
-        Port (InstOpCode : in STD_LOGIC_VECTOR(3 downto 0);
+        Port (InstOpCode : in STD_LOGIC_VECTOR(15 downto 0);
               RegDst  : out STD_LOGIC;
               Jump  : out STD_LOGIC;
               Branch  : out STD_LOGIC;
@@ -168,16 +172,16 @@ architecture Structural of Datapath is
     FOR ALL : JumpMux use ENTITY work.JumpMux(Behavioral);
     FOR ALL : ControlUnit use ENTITY work.ControlUnit(Behavioral);
     
-    signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0)                      := "0000000000000000";
-    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0)                        := "0000000000000000";
-    signal InstDataSignal : STD_LOGIC_VECTOR(15 downto 0)                       := "0000000000000000";
-    signal InstInAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                    := "0000000000000000";
-    signal InstOutAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
-    
+    signal InitialPCSignal : STD_LOGIC_VECTOR(15 downto 0)                      := "1111111111111111";
+    signal pc_out_signal : STD_LOGIC_VECTOR(15 downto 0)                        := "1111111111111111";
+    signal InstDataSignal : STD_LOGIC_VECTOR(15 downto 0)                       := "1111111111111111";
+    --signal InstInAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                  := "0000000000000000";
+    --signal InstOutAdderSignal : STD_LOGIC_VECTOR(15 downto 0)                 := "0000000000000000";
+    --                                                                          
     signal InstRsMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
     signal InstRtMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
     signal InstRdMuxSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
-    
+    --                                                                          
     signal WriteRegisterSignalReg : STD_LOGIC_VECTOR(3 downto 0)                := "0000"; 
     signal Instruction_Adder_Component_Signal : STD_LOGIC_VECTOR(15 downto 0)   := "0000000000000000";
     signal SignExtendedSignal : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
@@ -190,15 +194,15 @@ architecture Structural of Datapath is
     signal DataMemorySignalOut : STD_LOGIC_VECTOR(15 downto 0)                  := "0000000000000000";
     signal MemToRegMuxOutSignal : STD_LOGIC_VECTOR(15 downto 0)                 := "0000000000000000";
     signal ShiftOutBranchSignal : STD_LOGIC_VECTOR(15 downto 0)                 := "0000000000000000";
-    signal PCMostSig : STD_LOGIC_VECTOR(2 downto 0) := "000";
+    signal PCMostSig : STD_LOGIC_VECTOR(2 downto 0)                             := "000";
     signal BranchJumpAdderALUResult : STD_LOGIC_VECTOR(15 downto 0)             := "0000000000000000";
     signal ShiftJumpSignalOut : STD_LOGIC_VECTOR(12 downto 0)                   := "0000000000000";
     signal ZeroAndBranchSignal : STD_LOGIC                                      := '0';
     signal BranchMuxSignalOut : STD_LOGIC_VECTOR(15 downto 0)                   := "0000000000000000";
     signal JumpFullSignal : STD_LOGIC_VECTOR(15 downto 0)                       := "0000000000000000";
-    signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0)                          := "0000000000000000";
-    
-    --Control Unit signals.
+    signal PCOutSignal : STD_LOGIC_VECTOR(15 downto 0)                          := "1111111111111111";
+    --                                                                          
+    --Control Unit signals.                                                     
     signal OpCodeSignal : STD_LOGIC_VECTOR(3 downto 0)                          := "0000";
     signal ALUOpCodeSignal : STD_LOGIC_VECTOR(3 downto 0)                       := "0000";
     signal RegDstSignal : STD_LOGIC                                             := '0';
@@ -235,7 +239,7 @@ begin
     
     ControlUnitCall : ControlUnit
      PORT MAP(
-        InstOpCode => OpCodeSignal,
+        InstOpCode => InstDataSignal,
         RegDst => RegDstSignal,
         Jump  => JumpSignal,
         Branch  => BranchSignal,
@@ -250,14 +254,14 @@ begin
     InstMemToRegMuxCall : InstMemToRegMux
      PORT MAP(
         RegDst => RegDstSignal,
-        Inst1Rs  => InstRtMuxSignal,
-        Inst2Rd  => InstRdMuxSignal,
+        Inst1Rs  => InstDataSignal(7 downto 4),
+        Inst2Rd  => InstDataSignal(3 downto 0),
         MuxOut => WriteRegisterSignalReg
     );
     
     SignExtensionCall : SignExtension
      PORT MAP(
-        DataIn => InstRdMuxSignal, --Rd
+        DataIn => InstDataSignal(3 downto 0), --Rd
         ExtendedData  => SignExtendedSignal
     );
     
@@ -276,15 +280,15 @@ begin
     
     ShiftJumpCall : ShiftJump
      PORT MAP(
-        ShiftAddress => JumpShifterSignal,
+        ShiftAddress => InstDataSignal(11 downto 0),
         ShiftOut  => ShiftJumpSignalOut
     );
 
     RegFileCall : RegFile
      PORT MAP(
         clk => clk,
-        ReadReg1  => InstRsMuxSignal,
-        ReadReg2  => InstRtMuxSignal,
+        ReadReg1  => InstDataSignal(11 downto 8),
+        ReadReg2  => InstDataSignal(7 downto 4),
         WriteReg  => WriteRegisterSignalReg,
         WriteData => MemToRegMuxOutSignal,
         RegWriteCtrl => RegWriteSignal,
@@ -332,31 +336,43 @@ begin
     PORT MAP(
         PCPlusFour => Instruction_Adder_Component_Signal,
         BranchALUResult  => BranchJumpAdderALUResult,
-        PCSrc => ZeroAndBranchSignal ,
+        Zero => ZeroSignal,
+        Branch => BranchSignal,
+        --PCSrc => ZeroAndBranchSignal ,
         NextPC => BranchMuxSignalOut 
     );
 
     JumpMuxCall : JumpMux 
     PORT MAP(
         Jump => JumpSignal,
-        JumpAddressIn  => JumpFullSignal,
+        PCMostSig => Instruction_Adder_Component_Signal(15 downto 13),
+        ShiftJumpSignalOut => ShiftJumpSignalOut,
+        --JumpAddressIn  => PCMostSig & ShiftJumpSignalOut,
         BranchMuxIn  => BranchMuxSignalOut,
         PCOut => PCOutSignal 
     );
     
     process (clk)
---    process (PCOutSignal, InstDataSignal, Instruction_Adder_Component_Signal, ShiftJumpSignalOut, ZeroSignal, BranchSignal )
+    --process (clk, PCOutSignal, InstDataSignal, Instruction_Adder_Component_Signal, ShiftJumpSignalOut, ZeroSignal, BranchSignal )
     begin
-    
-    OpCodeSignal <= InstDataSignal(15 downto 12);
-    PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
-    InstRsMuxSignal <= InstDataSignal(11 downto 8);
-    InstRtMuxSignal <= InstDataSignal(7 downto 4);
-    InstRdMuxSignal <= InstDataSignal(3 downto 0);
-    JumpShifterSignal <= InstDataSignal(11 downto 0);
-    JumpFullSignal <= PCMostSig & ShiftJumpSignalOut;
-    ZeroAndBranchSignal <= ZeroSignal and BranchSignal;    
-    InitialPCSignal <= PCOutSignal;
+    --if falling_edge(clk) then
+    --     InitialPCSignal <= PCOutSignal;
+    --end if;
+    if rising_edge(clk) then
+    --if falling_edge(clk) then
+       
+           InitialPCSignal <= PCOutSignal;
+           --OpCodeSignal <= InstDataSignal(15 downto 12);
+           --PCMostSig <= Instruction_Adder_Component_Signal(15 downto 13);
+           --InstRsMuxSignal <= InstDataSignal(11 downto 8);
+           --InstRtMuxSignal <= InstDataSignal(7 downto 4);
+           --InstRdMuxSignal <= InstDataSignal(3 downto 0);
+           --JumpShifterSignal <= InstDataSignal(11 downto 0);
+           --JumpFullSignal <= PCMostSig & ShiftJumpSignalOut;
+           --ZeroAndBranchSignal <= ZeroSignal and BranchSignal;    
+           
+        
+    end if;
     end process;
     
     

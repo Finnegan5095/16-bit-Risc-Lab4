@@ -42,16 +42,16 @@ architecture Behavioral of MemToRegMux is
 
 begin
    
-   -- MemToRegMuxOut gets ReadDataMem when MemToReg control is low and ALUResult when high.
    process (ReadDataMem, MemToReg, ALUResult) 
    begin
     if (MemToReg = '0') then
-        MemToRegMuxOut <= ReadDataMem;
-    elsif (MemToReg = '1') then
         MemToRegMuxOut <= ALUResult;
+    elsif (MemToReg = '1') then
+        MemToRegMuxOut <= ReadDataMem;
     else
         MemToRegMuxOut <= "HHHHHHHHHHHHHHHH";
     end if;
     --MemToRegMuxOut <= ReadDataMem WHEN MemToReg = '0' ELSE ALUResult;
     end process;
+
 end Behavioral;

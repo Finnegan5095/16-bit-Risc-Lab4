@@ -26,6 +26,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -37,6 +38,8 @@ entity ALU is
         RegToALUMuxIn   : in STD_LOGIC_VECTOR(15 downto 0);
         ALUctrOpCode  : in STD_LOGIC_VECTOR(3 downto 0);
         Zero    : out std_logic;
+        Overflow    : out std_logic;
+        Carryout    : out std_logic;
         ALUResultOut  : out STD_LOGIC_VECTOR(15 downto 0));
 end ALU;
 
@@ -122,17 +125,20 @@ begin
                 Divisor := to_integer(signed(RegToALUMuxIn));
                 TempDiv := 0;
                 TempInv := "0000000000000000";
-                While TempDiv < QuotientToInt loop
-                       TempDiv := TempDiv + Divisor;
-                        if (TempDiv >= QuotientToInt) then
-                            exit;
-                        end if;
-                end loop;
+                --While TempDiv < QuotientToInt loop
+                --       TempDiv := TempDiv + Divisor;
+                --        if (TempDiv >= QuotientToInt) then
+                --            exit;
+                --        end if;
+                --end loop;
                 
-                if ((QuotientToInt < 0) or  (Divisor < 0)) then
-                    TempInv := not(to_signed(TempDiv, TempInv'length)) + "0000000000000001";
-                end if;
-                ALUResultOut <= STD_LOGIC_VECTOR(TempInv);
+                --if ((QuotientToInt < 0) or  (Divisor < 0)) then
+                --    TempInv := not(to_signed(TempDiv, TempInv'length)) + "0000000000000001";
+                --end if;
+                --ALUResultOut <= STD_LOGIC_VECTOR(TempInv);
+                --R <= std_logic_vector(to_signed(to_integer(signed(X) / signed(Y)),32));
+                ALUResultOut <= std_logic_vector(to_signed(TO_INTEGER(signed(ReadData1) / signed(RegToALUMuxIn)) , 16));
+                --ALUResultOut <= (signed(ReadData1)) / (signed(RegToALUMuxIn));
                 
                 if (STD_LOGIC_VECTOR(TempINV)) = "0000000000000000" then
                     Zero <= '1';
@@ -213,7 +219,8 @@ begin
                 
                  -- Shift Left Logical
             When "1110" =>
-                ALUResultOut <= std_logic_vector(unsigned(ReadData1) sll to_integer(unsigned(RegToALUMuxIn)));                 
+                --ALUResultOut <= std_logic_vector(unsigned(ReadData1) sll to_integer(unsigned(RegToALUMuxIn)));
+                ALUResultOut <= std_logic_vector(shift_left(unsigned(ReadData1), to_integer(unsigned(RegToALUMuxIn))));                 
                     
                  -- Jump Return
             When "1111" =>

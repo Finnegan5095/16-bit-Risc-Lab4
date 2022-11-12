@@ -34,15 +34,17 @@ use IEEE.NUMERIC_STD.ALL;
 entity BranchMux is
   Port (PCPlusFour : in STD_LOGIC_VECTOR(15 downto 0);
         BranchALUResult : in STD_LOGIC_VECTOR(15 downto 0);
-        PCSrc  : in STD_LOGIC;
+        --PCSrc  : in STD_LOGIC;
+        Zero : in std_logic;
+        Branch : in std_logic;
         NextPC   : out STD_LOGIC_VECTOR(15 downto 0));
 end BranchMux;
 
 architecture Behavioral of BranchMux is
-
+signal PCSrc : std_logic;
 begin
-
-process (PCPlusFour, PCSrc, BranchALUResult) 
+PCSrc <= (Zero and Branch);
+process (PCPlusFour, BranchALUResult) 
    begin
     if (PCSrc = '0') then
         NextPC <= PCPlusFour;
@@ -53,7 +55,5 @@ process (PCPlusFour, PCSrc, BranchALUResult)
     end if;
    
     end process;
-    -- NextPC gets PCPlusFour when PCSrc is low and BranchALUResult when high.
-    --NextPC <= PCPlusFour WHEN PCSrc = '0' ELSE BranchALUResult;
 
 end Behavioral;

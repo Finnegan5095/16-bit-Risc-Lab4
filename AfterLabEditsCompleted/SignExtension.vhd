@@ -39,17 +39,19 @@ end SignExtension;
 architecture Behavioral of SignExtension is
 
 begin
+
 process(DataIn) 
 begin
-
+    
     if (DataIn(3) = '1') then
         ExtendedData <= "111111111111" & DataIn; 
     else
         ExtendedData <= "000000000000" & DataIn;
-
+    
     end if;
 -- ExtendedData <= "111111111111" & DataIn WHEN DataIn(3) = '1' ELSE "000000000000" & DataIn;
 
 end process;
+   
 
 end Behavioral;

@@ -40,11 +40,10 @@ end BranchJumpAdder;
 architecture Behavioral of BranchJumpAdder is
 
 begin
-process(ShiftInput, PCAddress)
+
+    process(PCAddress)
     begin
          ALUResult <= ShiftInput + PCAddress; --Adding the two 16-bit addresses.
     end process;
-
-   -- ALUResult <= ShiftInput + PCAddress; --Adding the two 16-bit addresses.
 
 end Behavioral;

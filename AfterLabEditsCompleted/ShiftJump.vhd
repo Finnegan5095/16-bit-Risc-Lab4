@@ -40,12 +40,11 @@ architecture Behavioral of ShiftJump is
 
 begin
 
+--ShiftOut <= ShiftAddress & '0'; --Move bits over one and concatenate with 0 on LSB.
 process(ShiftAddress)
 begin
     ShiftOut <= '0' & ShiftAddress; -- Shouldn't need to shift.
 
 end process;
-
---ShiftOut <= ShiftAddress & '0'; --Move bits over one and concatenate with 0 on LSB.
 
 end Behavioral;

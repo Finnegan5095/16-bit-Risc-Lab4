@@ -45,11 +45,11 @@ architecture Behavioral of DataMemory is
 
 type DataMem is array (0 to 255) of STD_LOGIC_VECTOR(15 downto 0);
 signal LongAssMemorySignal : DataMem := (
-    x"0000",
-    x"0001",
-    x"0002",
-    x"0003",
-    x"0004",
+    x"0101",
+    x"0110",
+    x"0011",
+    x"00F0",
+    x"00FF",
     x"0005",
     x"0006",
     x"0007",
@@ -305,13 +305,13 @@ signal LongAssMemorySignal : DataMem := (
 begin
 
 
-process(MemWrite, MemRead)
+process(MemWrite, MemRead, clk)
 begin
 -- Write and read on the falling edge. 
-if (MemRead = '1' and Rising_edge(clk)) then
+if (MemRead = '1') then
     ReadData <= LongAssMemorySignal(to_integer(unsigned(ALUResult)));
 
-elsif (MemWrite = '1' and Falling_edge(clk)) then
+elsif (MemWrite = '1' and Rising_edge(clk)) then
     LongAssMemorySignal(to_integer(unsigned(ALUResult))) <= WriteData;
 
 else --?

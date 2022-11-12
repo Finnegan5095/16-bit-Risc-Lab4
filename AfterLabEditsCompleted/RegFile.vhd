@@ -68,16 +68,19 @@ architecture Behavioral of RegFile is
 begin
 
     -- Outputting the Register data by converting the ReadReg 4 bits to an integer index.
-    ReadData1 <= Reg_File(to_integer(unsigned(ReadReg1))); 
-    ReadData2 <= Reg_File(to_integer(unsigned(ReadReg2)));
+    process (ReadReg1, ReadReg2)
+    begin
+        ReadData1 <= Reg_File(to_integer(unsigned(ReadReg1))); 
+        ReadData2 <= Reg_File(to_integer(unsigned(ReadReg2)));
+    end process;
 
 process(clk)
     begin
     --Check if we are at the rising edge of the clock and that the Reg write enable signal is '1'.
-    if (Rising_edge(clk) and RegWriteCtrl = '1') then
+    if (Rising_edge(clk) and RegWriteCtrl = '1' and not(WriteReg = "0000")) then
         Reg_File(to_integer(unsigned(WriteReg))) <= WriteData;
-    --else
-        --Reg_File(to_integer(unsigned(WriteReg))) <= Reg_File(to_integer(unsigned(WriteReg)));
+    else
+        Reg_File(to_integer(unsigned(WriteReg))) <= Reg_File(to_integer(unsigned(WriteReg)));
     end if;
 end process;
 end Behavioral;

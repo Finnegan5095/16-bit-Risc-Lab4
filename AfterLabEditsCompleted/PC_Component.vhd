@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Company: 
 -- Engineer: 
--- 
+ 
 -- Create Date: 10/22/2022 04:02:45 PM
 -- Design Name: 
 -- Module Name: PC_Component - Behavioral
@@ -9,9 +9,9 @@
 -- Target Devices: 
 -- Tool Versions: 
 -- Description: 
--- 
+ 
 -- Dependencies: 
--- 
+ 
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
@@ -35,11 +35,11 @@ architecture Behavioral of PC_Component is
 begin
 process (clk)
 	begin
-	--if rising_edge(clk) then 
-	if falling_edge(clk) then --Ask Rob about rising/falling edge for pc counter.
-		pc_out <= pc_in;
-	else
-	   pc_out <= pc_out;
+	if rising_edge(clk) then 
+	--if falling_edge(clk) then --Ask Rob about rising/falling edge for pc counter.
+	   pc_out <= pc_in after 49ns;
+	--else
+	   --pc_out <= pc_out;
 	end if;
 	   
 end process;
