@@ -11,12 +11,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="15000001fs"></ZoomEndTime>
-      <Cursor1Time time="15000000fs"></Cursor1Time>
+      <ZoomEndTime time="18000001fs"></ZoomEndTime>
+      <Cursor1Time time="8810026fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="538"></NameColumnWidth>
-      <ValueColumnWidth column_width="253"></ValueColumnWidth>
+      <ValueColumnWidth column_width="245"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="18" />
    <wvobject fp_name="group202" type="group">
@@ -317,136 +317,6 @@
          <obj_property name="ObjectShortName">Reg_File[0:15][15:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
          <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="Radix">HEXRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[4]" type="array">
-            <obj_property name="ElementShortName">[4][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[4][15:0]</obj_property>
-            <obj_property name="Radix">HEXRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[5]" type="array">
-            <obj_property name="ElementShortName">[5][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[5][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[6]" type="array">
-            <obj_property name="ElementShortName">[6][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[6][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[7]" type="array">
-            <obj_property name="ElementShortName">[7][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[7][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[8]" type="array">
-            <obj_property name="ElementShortName">[8][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[8][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[9]" type="array">
-            <obj_property name="ElementShortName">[9][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[9][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[10]" type="array">
-            <obj_property name="ElementShortName">[10][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[10][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[11]" type="array">
-            <obj_property name="ElementShortName">[11][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[11][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[12]" type="array">
-            <obj_property name="ElementShortName">[12][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[12][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[13]" type="array">
-            <obj_property name="ElementShortName">[13][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[13][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[14]" type="array">
-            <obj_property name="ElementShortName">[14][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[14][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[15]" type="array">
-            <obj_property name="ElementShortName">[15][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[15][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[4]" type="array">
-            <obj_property name="ElementShortName">[4][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[4][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[5]" type="array">
-            <obj_property name="ElementShortName">[5][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[5][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[6]" type="array">
-            <obj_property name="ElementShortName">[6][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[6][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[7]" type="array">
-            <obj_property name="ElementShortName">[7][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[7][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[8]" type="array">
-            <obj_property name="ElementShortName">[8][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[8][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[9]" type="array">
-            <obj_property name="ElementShortName">[9][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[9][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[10]" type="array">
-            <obj_property name="ElementShortName">[10][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[10][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[11]" type="array">
-            <obj_property name="ElementShortName">[11][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[11][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[12]" type="array">
-            <obj_property name="ElementShortName">[12][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[12][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[13]" type="array">
-            <obj_property name="ElementShortName">[13][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[13][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[14]" type="array">
-            <obj_property name="ElementShortName">[14][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[14][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/DatapathTestbench/DUT/RegFileCall/Reg_File[15]" type="array">
-            <obj_property name="ElementShortName">[15][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[15][15:0]</obj_property>
-         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group100" type="group">
